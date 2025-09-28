@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Convite do Bernardo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Música de fundo -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Botão para iniciar música -->
+  <button id="playBtn">🔊 Tocar Música</button>
+
+  <!-- Bolas animadas -->
+  <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Caixa do convite -->
+  <div class="convite">
+    <h1>🎉 Convite de Aniversário 🎉</h1>
+    <p><strong>Aniversariante:</strong> Bernardo Porto Silva</p>
+    <p><strong>Data:</strong> 11/10/2025</p>
+    <p><strong>Horário:</strong> 16:00</p>
+    <p><strong>Local:</strong> Minha Residência ⚽</p>
+    <p>Venha comemorar com a gente! 🎊</p>
+
+    <!-- Contador regressivo -->
+    <div id="contador">Carregando...</div>
+  </div>
+
+  <script>
+    // Ativar música ao clicar no botão
+    document.getElementById("playBtn").addEventListener("click", () => {
+      const musica = document.getElementById("musica");
+      musica.play();
+      document.getElementById("playBtn").style.display = "none"; // esconde o botão depois
+    });
+
+    // Contador regressivo
+    function atualizarContador() {
+      const evento = new Date("2025-10-11T16:00:00").getTime();
+      const agora = new Date().getTime();
+      const diff = evento - agora;
+
+      if (diff <= 0) {
+        document.getElementById("contador").innerHTML = "🎉 O grande dia chegou! 🎉";
+        return;
+      }
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("contador").innerHTML =
+        dias + "d " + horas + "h " + minutos + "m " + segundos + "s";
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+</body>
+</html>

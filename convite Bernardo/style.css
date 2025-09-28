@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("cristiano.jpeg") no-repeat center center/cover;
+  color: white;
+  overflow: hidden;
+}
+
+.convite {
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  z-index: 10;
+}
+
+.convite h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: yellow;
+  text-shadow: 2px 2px 8px black;
+}
+
+.convite p {
+  font-size: 24px;
+  margin: 10px 0;
+  text-shadow: 2px 2px 6px black;
+}
+
+/* Contador em estilo digital */
+#contador {
+  font-size: 36px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #00ffcc;
+  text-shadow: 0 0 20px #00ffcc, 0 0 40px #00cc99;
+  font-family: "Courier New", monospace;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Bolas animadas */
+.particles span {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  background: url("bola4.png") no-repeat center/contain;
+  animation: quicar 3s cubic-bezier(.28,.84,.42,1) infinite;
+
+  /* Truque para esconder fundo preto */
+  mix-blend-mode: screen;     
+  filter: drop-shadow(0 0 8px rgb(219, 7, 7));
+}
+
+/* Posições diferentes */
+.particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particles span:nth-child(2) { left: 40%; animation-delay: 0.5s; }
+.particles span:nth-child(3) { left: 70%; animation-delay: 1s; }
+.particles span:nth-child(4) { left: 85%; animation-delay: 1.5s; }
+
+/* Animação de quicar */
+@keyframes quicar {
+  0%   { transform: translateY(0) scale(1,1) rotate(0deg); }
+  30%  { transform: translateY(-200px) rotate(90deg); }
+  50%  { transform: translateY(0) scale(1.2,0.8) rotate(180deg); }
+  70%  { transform: translateY(-120px) rotate(270deg); }
+  100% { transform: translateY(0) scale(1,1) rotate(360deg); }
+}
+
